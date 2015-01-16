@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE doc [
+        <!ENTITY dimension_sequences SYSTEM "dimension_sequences.xml">
+        <!ENTITY dimensions SYSTEM "dimensions.xml">
+        <!ENTITY metrics SYSTEM "metrics.xml">
+        <!ENTITY joins SYSTEM "joins.xml">
+        <!ENTITY pub_view_assembly SYSTEM "pub_view_assembly.xml">
+        <!ENTITY dsp_view_assembly SYSTEM "dsp_view_assembly.xml">
+        <!ENTITY atd_view_assembly SYSTEM "atd_view_assembly.xml">
+        <!ENTITY adn_view_assembly SYSTEM "adn_view_assembly.xml">
+ ]>
+<assemblies xmlns="http://matrix.pubmatic.com/matrix/reports">
+	<assembly name="publisher" version="1" applicable-date="06-07-20014 05:00:00">
+		<assemblyFields>
+            &dimensions;
+            &metrics;
+            &dimension_sequences;
+		</assemblyFields>
+        &joins;
+		<assemblyGroups>
+            &pub_view_assembly;
+            &dsp_view_assembly;
+            &atd_view_assembly;
+            &adn_view_assembly;
+		</assemblyGroups>
+		<meta>
+			<partitionFields>
+				<name>time_zone</name>
+				<name>job_date_hour</name>
+				<name>processing_state</name>
+				<name>group_key</name>
+			</partitionFields>
+			<dateField>date_hour</dateField>
+		</meta>
+	</assembly>
+</assemblies>
